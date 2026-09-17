@@ -6,8 +6,9 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @AllArgsConstructor
-public class ErrorResponse {
+public class ErrorResponseDto {
     private String message;
     private int status;
+    private String path;
     private LocalDateTime timestamp;
 }
