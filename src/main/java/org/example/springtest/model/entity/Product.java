@@ -1,7 +1,9 @@
-package org.example.springtest.Entity;
+package org.example.springtest.model.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.math.BigDecimal;
 
 @Entity
 @Getter
@@ -15,5 +17,11 @@ public class Product {
     private Long id;
 
     private String name;
+
+    private BigDecimal price;
+
+    private String category;
+
+    private Integer stock;
 
 }
