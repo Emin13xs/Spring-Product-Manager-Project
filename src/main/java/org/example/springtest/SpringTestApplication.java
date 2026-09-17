@@ -9,9 +9,6 @@ import org.springframework.context.ConfigurableApplicationContext;
 public class SpringTestApplication {
 
     public static void main(String[] args) {
-       ConfigurableApplicationContext context =  SpringApplication.run(SpringTestApplication.class, args);
-//        ProductService productService = context.getBean(ProductService.class);
-//        productService.printAllProducts();
-//        productService.createProduct();
+        SpringApplication.run(SpringTestApplication.class, args);
     }
 }
