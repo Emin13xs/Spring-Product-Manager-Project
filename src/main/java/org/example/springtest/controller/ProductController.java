@@ -1,6 +1,7 @@
 package org.example.springtest.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example.springtest.model.dto.ProductUpdateDto;
 import org.example.springtest.model.dto.ProductV1;
 import org.example.springtest.model.dto.ProductV2;
 import org.example.springtest.model.entity.Product;
@@ -22,13 +23,13 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-    @GetMapping("/v1/products/{id}")
+    @GetMapping("/v1/product/{id}")
     public ResponseEntity<ProductV1> getProductV1(@PathVariable Long id) {
         Product product = productService.getProductId(id);
         ProductV1 response = new ProductV1(product.getName(), product.getPrice());
         return ResponseEntity.ok(response);
     }
-    @GetMapping("/v2/products/{id}")
+    @GetMapping("/v2/product/{id}")
     public ResponseEntity<ProductV2> getProductV2(@PathVariable Long id) {
         Product product = productService.getProductId(id);
         ProductV2 response = new ProductV2(
@@ -39,5 +40,9 @@ public class ProductController {
         );
         return ResponseEntity.ok(response);
     }
-
+    @PutMapping("/product/{id}")
+    public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody ProductUpdateDto dto){
+        Product product = productService.updateProduct(id, dto);
+        return ResponseEntity.ok(product);
+    }
 }

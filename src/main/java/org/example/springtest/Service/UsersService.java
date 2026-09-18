@@ -2,7 +2,7 @@ package org.example.springtest.Service;
 
 import lombok.RequiredArgsConstructor;
 import org.example.springtest.Repository.UserRepository;
-import org.example.springtest.exception.UserNotFoundException;
+import org.example.springtest.exception.ResourceNotFoundException;
 import org.example.springtest.model.dto.UserResponseDto;
 import org.example.springtest.model.dto.UserResponseDtoV2;
 import org.example.springtest.model.entity.UserEntity;
@@ -52,6 +52,6 @@ public class UsersService {
             throw new IllegalArgumentException("Id müsbət ədəd olmalıdır: " + id);
         }
         return userRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("İstifadəçi tapılmadı: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("İstifadəçi tapılmadı: " + id));
     }
 }
